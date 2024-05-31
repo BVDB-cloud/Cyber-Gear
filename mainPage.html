@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGear Products Page</title>
+    <meta name="description" content="This page is used to store the products of CyberGear.inc">
+    <link rel="stylesheet" href="productsPage.css">
+    <link rel="stylesheet" href="mainStyle.css">
+    <link rel="stylesheet" href="mainPage.css">
+    <script src="https://kit.fontawesome.com/27251a149a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <div class="navbarWrapper">
+            <div class="navBarLeft">
+                <div class="navBarLogo">
+                    <a href="homePage.html"><img src="Images/Common Images/cybergearMainLogo.png" alt="cybergearMainLogo" id="mainImageLogo"></a>
+                </div>
+                <div class="navBarLinks">
+                    <a href="mainPage.html" id="activeTab">Home</a>
+                    <a href="productsPage.html">Shop</a>
+                    <a href="AboutUs.html">About</a>
+                    <a href="contactUs">Contact</a>
+                    <a href="SignIn.html">Sign In</a>
+
+                </div>
+            </div>
+            <div class="navBarShoppingCart">
+                <i id="navBarShoppingCart" class="fa-solid fa-cart-shopping" style="font-size: 20px; cursor: pointer;"></i>
+                <span id="shoppingCartNumberOfItems" value ="0" >0</span>
+            </div>
+        </div>
+    </nav>
+    <div class="mainbody">
+        <div class="openingSale">
+            <div class="textSale">
+                <h1>OPENING <br> SALE</h1>
+                <h2>ONLY FOR 1 MONTH</h2>
+                <button id="shopNow">SHOP NOW</button>
+            </div>
+            <img src="Images/Common Images/image.png" alt="">
+        </div>
+        <div class="Features-selection">
+          <div class="box">
+            <img src="Images/FS/fastShipping.png">
+            <h4 class="name">Fast Shipping</h4>
+          </div>
+          <div class="box">
+            <img src="Images/FS/order-food.png">
+            <h4 class="name">Online Order</h4>
+          </div>
+          <div class="box">
+            <img src="Images/FS/piggy-bank.png" >
+            <h4 class="name">Save Money</h4>
+          </div>
+          <div class="box">
+            <img src="Images/FS/sale-tag.png" >
+            <h4 class="name">Coupons</h4>
+          </div>
+          <div class="box">
+            <img src="Images/FS/happy (1).png">
+            <h4 class="name">Happy Sell</h4>
+          </div>
+          <div class="box">
+            <img src="Images/FS/24-hours.png" >
+            <h4 class="name">24/7 Support</h4>
+          </div>
+        </div>
+          <section id="featuredProdcutsSection">
+            
+            <div class="featuredCollection">
+                <h1>Featured Products</h1>
+                <h3>Old Timers are back for a limited time!</h3>
+            </div>
+            <!--featured products-->
+            <div class="centerFeatured">
+                <div id="featuredProducts" class="products">
+                    <!-- Featured products will be injected here -->
+                </div>
+            </div>
+          </section>
+          <section id="couponCode">
+            <h1>Up to <span>20% off</span>- All Technoligical Appliences</h1>
+            <h2>Just Type in <span>DISCOUNT20</span> At Checkout</h2>
+            <button>Explore More</button>
+          </section>
+          <section id="newArrivals">
+            <h1>New Arrivals</h1>
+            <h2>The Newest Arrivals Are Here</h2>
+            <div id="newArrivalsContainer">
+
+            </div>
+          </section>
+          <section id="newsLetterSignup">
+            <div class="textNewsletter">
+                <h2>Sign Up For Newsletters</h2>
+                <h3>Get E -mail updates about our latest shop and <span>special offers.</span></h3>
+            </div>
+            <div class="signupfields">
+                <input type="text">
+                <button>Sign Up</button>
+            </div>
+          </section>
+        <div class="shoppingCartPopOutMenu">
+            <div class="shoppingCartPopoutMenuTitle">
+                <i class="fa-solid fa-cart-shopping" style="color: #111111"></i>           
+                <p>Your Cart</p>
+                <div class="shoppingCartExitButton">
+                    <i class="fa-solid fa-xmark" id="cartExit"></i>
+                </div>
+            </div>
+            <div class="couponBannerSuccessful">
+                <p>Coupon code applied successfully.</p>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="couponBannerDenied">
+                <p>Invalid Coupon Code, Try again.</p>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+                <div id="productHolder"></div>
+            <div class="couponAddOption">
+                <input type="text" placeholder="Enter coupon code here" id="discountCodeInput">
+                <button>Apply</button>
+            </div>
+            <div class="shopingCartMoneyWrapper">
+                <div class="totals">
+                    <p>Subtotal: <span id="subtotal">$0.00</span></p>
+                    <p>Shipping: <span id="shipping">$0.00</span></p>
+                    <p>Tax: <span id="tax">$0.00</span></p>
+                    <p>Discount: <span id="discount">$0.00</span></p>
+                    <p>Total: <span id="total">$0.00</span></p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footerContainer">
+                <div class="footer-section">
+                    <h2 class="logo">CyberGear</h2>
+                    <address>
+                        <strong>Address:</strong> 5100 Maple St, Bellaire, TX 77401<br>
+                        <strong>Phone:</strong> (713) 295-3704<br>
+                        <strong>Hours:</strong> 08:30 - 16:10, Mon - Fri
+                    </address>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>My Account</h3>
+                    <ul>
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">View Cart</a></li>
+                        <li><a href="#">My Wishlist</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Install App</h3>
+                    <div class="app-links">
+                        <a href="#"><img src="Images/Common Images/appstore.png" alt="App Store"    ></a>
+                        <a href="#"><img src="Images/Common Images/googlepla.jpg" alt="Google Play"></a>
+                    </div>
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-discover"></i>
+                        <i class="fa-brands fa-cc-amex"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024, CyberGear - Computer Science Final Project</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="shoppingCart.js"></script>
+    <script src="mainPage.js"></script>
+
+</body>
+</html>

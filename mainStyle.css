@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.navbarWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    background-color: #111111;
+    padding: 0 30px;
+}
+
+.navBarLeft {
+    display: flex;
+    align-items: center;
+}
+
+.navBarLogo img {
+    height: 80px;
+    margin-top: 10px;
+}
+
+.navBarLinks {
+    display: flex;
+    margin-left: 80px;
+}
+
+.navBarLinks a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: snow;
+    font-size: 16px;
+}
+
+.navBarShoppingCart {
+    position: relative;
+    color: snow;
+    margin-right: 30px;
+}
+
+#shoppingCartNumberOfItems {
+    width: fit-content;
+    padding: 2px 7px;
+    background-color: forestgreen;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 11px;
+    position: absolute;
+    bottom: -5px;
+    right: -10px;
+}
+#activeTab{
+    border-bottom: #1691b5 2px solid;
+}
+.mainbody, main{
+    overflow-x: hidden;
+}
+.card {
+    background-color: snow;
+    max-width: 340px;
+    width: fit-content;
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 16px 32px 40px rgba(1, 2, 68, 0.08);
+}
+
+.image-container {
+    text-align: center;
+}
+
+img {
+    height: 240px;
+    width: 240px;
+}
+
+.container {
+    padding-top: 16px;
+    background-color: snow;
+}
+
+.container h5 {
+    font-weight: 500;
+}
+.badge {
+    position: relative;
+    bottom: 0;
+    left: 90%;
+    width: 30px;
+    height: 30px;
+    opacity: .9 ;
+    background-color: #98FB98;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}   

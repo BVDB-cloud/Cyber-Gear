@@ -1,0 +1,287 @@
+/* Shopping Cart Popout Menu Styles */
+.shoppingCartPopOutMenu {
+    margin-left: auto;
+    width: 450px;
+    background-color: white;
+    box-shadow: -5px 0 10px -5px rgba(0, 0, 0, 0.1);
+    display: none;
+    transition: linear 1s;
+}
+
+.shoppingCartPopoutMenuTitle {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.shoppingCartPopoutMenuTitle p {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: -0.5px;
+}
+
+.shoppingCartExitButton,
+.couponBannerSuccessful i,
+.couponBannerDenied i {
+    margin-left: auto;
+    font-size: 20px;
+    margin-right: 20px;
+    color: #111111;
+    cursor: pointer;
+}
+
+.couponBannerSuccessful {
+    background-color: lightgreen;
+    border-left: 5px darkgreen solid;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.couponBannerSuccessful p {
+    margin-left: 10px;
+    color: forestgreen;
+    font-weight: 600;
+}
+
+.couponBannerDenied {
+    background-color: crimson;
+    border-left: 5px darkred solid;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.couponBannerDenied p {
+    margin-left: 10px;
+    font-weight: 600;
+    color: maroon;
+}
+
+.couponAddOption {
+    display: flex;
+    justify-content: center;
+}
+
+.couponAddOption input {
+    border: none;
+    border-top: 1px solid gray;
+    width: 78%;
+}
+
+.couponAddOption button {
+    background-color: forestgreen;
+    color: snow;
+    border: none;
+    border-radius: 5px;
+    padding: 6px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.couponAddOption button:active {
+    background-color: darkgreen;
+}
+
+.couponAddOption input:focus {
+    outline: none;
+}
+
+.headingMoneyTotals {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.pricesTotals {
+    flex-direction: column;
+    display: flex;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.shopingCartMoneyWrapper {
+    display: flex;
+    margin-top: 50px;
+    font-size: 13px;
+    text-align: right;
+    color: rgb(190, 188, 188);
+    font-weight: 500;
+    line-height: 25px;
+}
+
+/* Main Section Styles */
+main {
+    display: flex;
+}
+
+/* Filter Navigation Styles */
+.leftSideFilterPageWrapper {
+    width: 250px;
+    background-color: white;
+    height: 120vh;
+    box-shadow: 2px 0 20px 1px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.leftSideFilterPageWrapper h2 {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.filterSection h3 {
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.filterSection input {
+    margin-right: 10px;
+    height: 18px;
+    width: 18px;
+    vertical-align: middle;
+}
+
+.filterSection label {
+    font-size: 18px;
+}
+
+/* Section Middle Styles */
+.sectionMiddle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 800px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 50px;
+}
+
+#searchBarInput {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding-left: 45px;
+}
+
+#searchIcon {
+    position: absolute;
+    left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6em;
+    width: 90%;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+/* Card Styles */
+
+.hide {
+    display: none;
+}
+.couponBannerSuccessful,
+.couponBannerDenied {
+    display: none;
+}
+.checkBoxFilter.active {
+    background-color: red;
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 720px) {
+    img {
+        max-width: 100%;
+        object-fit: contain;
+        height: 160px;
+    }
+
+    .card {
+        max-width: max-content;
+        margin-top: 16px;
+    }
+
+    #products {
+        grid-template-columns: auto auto !important;
+        grid-column-gap: 25px;
+    }
+}
+
+
+
+
+
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    width: 90%;
+}
+
+.cartImageContainer {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.cartImageContainer img {
+    width: 100%;
+    height: auto;
+}
+
+.cartDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartDetails h4 {
+    margin: 0;
+}
+
+.quantity input {
+    width: 50px;
+}
+
+.removeFromCart {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+.totals, .couponAddOption {
+    margin: 20px;
+}
+
+.totals p, .couponAddOption p {
+    margin: 5px 0;
+}

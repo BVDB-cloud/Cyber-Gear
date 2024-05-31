@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGear Products Page</title>
+    <meta name="description" content="This page is used to store the products of CyberGear.inc">
+    <link rel="stylesheet" href="productsPage.css">
+    <link rel="stylesheet" href="mainStyle.css">
+    <script src="https://kit.fontawesome.com/27251a149a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation bar of CyberGear -->
+    <nav>
+        <div class="navbarWrapper">
+            <div class="navBarLeft">
+                <div class="navBarLogo">
+                    <a href="homePage.html"><img src="Images/Common Images/cybergearMainLogo.png" alt="cybergearMainLogo" id="mainImageLogo"></a>
+                </div>
+                <div class="navBarLinks">
+                    <a href="mainPage.html">Home</a>
+                    <a href="productsPage.html" id="activeTab">Shop</a>
+                    <a href="AboutUs.html">About</a>
+                    <a href="contactUs.html">Contact</a>
+                    <a href="SignIn.html">Sign In</a>
+                </div>
+            </div>
+            <div class="navBarShoppingCart">
+                <i id="navBarShoppingCart" class="fa-solid fa-cart-shopping" style="font-size: 20px; cursor: pointer;"></i>
+                <span id="shoppingCartNumberOfItems" value ="0" >0</span>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="leftSideFilterPageWrapper">
+            <h2>Filters</h2>
+            <div class="filterSection filterPageSortSystem">
+                <h3>Sort</h3>
+                <label><input type="radio" name="sortButton" value="PriceHigh">High to Low</label><br>
+                <label><input type="radio" name="sortButton" value="PriceLow">Low to High</label><br>
+                <label><input type="radio" name="sortButton" value="NameAsc">A-Z</label><br>
+                <label><input type="radio" name="sortButton" value="NameDesc">Z-A</label><br>
+                <label><input type="radio" name="sortButton" value="StarsHigh">Most Stars</label><br>
+                <label><input type="radio" name="sortButton" value="StarsLow">Least Stars</label>
+            </div>
+            <div class="filterSection filterPageBrands">
+                <h3>Brand</h3>
+                <label><input type="checkbox" value="Apple" class="checkBoxFilter">Apple</label><br>
+                <label><input type="checkbox" value="Microsoft" class="checkBoxFilter">Microsoft</label><br>
+                <label><input type="checkbox" value="Samsung" class="checkBoxFilter">Samsung</label><br>
+                <label><input type="checkbox" value="BrandX" class="checkBoxFilter">Brand X</label>
+            </div>
+            <div class="filterSection filterPageCategories">
+                <h3>Category</h3>
+                <label><input type="checkbox" value="Laptop" class="checkBoxFilter">Laptop</label><br>
+                <label><input type="checkbox" value="PC Parts" class="checkBoxFilter">PC Parts</label><br>
+                <label><input type="checkbox" value="CategoryX" class="checkBoxFilter">Category X</label>
+            </div>
+            <div class="filterSection filterPagePriceRanges">
+                <h3>Price Range</h3>
+                <label><input type="checkbox" value="0-500" class="checkBoxFilter">$0 - $500</label><br>
+                <label><input type="checkbox" value="500-1000" class="checkBoxFilter">$500 - $1000</label><br>
+                <label><input type="checkbox" value="1000-1500" class="checkBoxFilter">$1000 - $1500</label>
+            </div>
+        </div>
+        <div class="sectionMiddle">
+            <div class="searchBar">
+                <i class="fa-sharp fa-solid fa-magnifying-glass" id="searchIcon"></i>
+                <input type="text" name="" id="searchBarInput" placeholder="Search All">
+            </div>
+            <div id="products"></div>
+        </div>
+        <div class="shoppingCartPopOutMenu">
+            <div class="shoppingCartPopoutMenuTitle">
+                <i class="fa-solid fa-cart-shopping" style="color: #111111"></i>           
+                <p>Your Cart</p>
+                <div class="shoppingCartExitButton">
+                    <i class="fa-solid fa-xmark" id="cartExit"></i>
+                </div>
+            </div>
+            <div class="couponBannerSuccessful">
+                <p>Coupon code applied successfully.</p>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="couponBannerDenied">
+                <p>Invalid Coupon Code, Try again.</p>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+                <div id="productHolder"></div>
+            <div class="couponAddOption">
+                <input type="text" placeholder="Enter coupon code here" id="discountCodeInput">
+                <button>Apply</button>
+            </div>
+            <div class="shopingCartMoneyWrapper">
+                <div class="totals">
+                    <p>Subtotal: <span id="subtotal">$0.00</span></p>
+                    <p>Shipping: <span id="shipping">$0.00</span></p>
+                    <p>Tax: <span id="tax">$0.00</span></p>
+                    <p>Discount: <span id="discount">$0.00</span></p>
+                    <p>Total: <span id="total">$0.00</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="shoppingCart.js"></script>
+</body>
+</html>
