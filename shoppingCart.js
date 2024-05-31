@@ -95,7 +95,7 @@ let products = {
             productName:"Apple Macintosh 128K",
             brand:"Apple",
             category:"Desktop",
-            price:"39,999",
+            price:"0",
             stars:"5",
             image:"image1.jpg",
         },
