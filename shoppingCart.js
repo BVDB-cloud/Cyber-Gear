@@ -2,7 +2,6 @@
 const navBarCart = document.getElementById('navBarShoppingCart');
 const shoppingCartDiv = document.querySelector(".shoppingCartPopOutMenu");
 const productsSection = document.getElementById("products");
-
 function toggleShoppingCart() {
     shoppingCartDiv.style.display = (shoppingCartDiv.style.display === "block") ? "none" : "block";
         // Toggle the margin property based on the current value
@@ -23,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const couponBannerDenied = document.querySelector('.couponBannerDenied');
     const closeCouponSuccess = document.querySelector('.couponBannerSuccessful i');
     const closeCouponDenied = document.querySelector('.couponBannerDenied i');
-
-    // Event listener for clicking outside the coupon banners to hide them
     document.addEventListener('click', function (event) {
         if (!event.target.closest('.couponBannerSuccessful') && couponBannerSuccessful.style.display === 'flex') {
             couponBannerSuccessful.style.display = 'none';
@@ -33,37 +30,25 @@ document.addEventListener("DOMContentLoaded", function () {
             couponBannerDenied.style.display = 'none';
         }
     });
-
-    // Event listener for clicking the cart icon
     cartIcon.addEventListener('click', function () {
         cartMenu.style.display = 'block';
     });
-
-    // Event listener for clicking the cart exit button
     cartExit.addEventListener('click', function () {
         cartMenu.style.display = 'none';
     });
-
-    // Event listener for clicking the apply coupon button
     applyCouponButton.addEventListener('click', applyCoupon);
-
-    // Event listener for pressing Enter key in coupon input field
     couponInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault(); 
             applyCoupon();
         }
     });
-
-    // Event listener for pressing Enter key on the apply coupon button
     applyCouponButton.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             event.preventDefault(); // Prevent form submission
             applyCoupon();
         }
     });
-
-    // Function to apply the coupon code and show corresponding banners
     function applyCoupon() {
         const couponCode = couponInput.value.trim();
         if (couponCode === "DISCOUNT20") { // Sample coupon code for testing
@@ -76,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         couponInput.value = '';
 
     }
-
-    // Additional code for closing coupon banners
     closeCouponSuccess.addEventListener('click', function () {
         couponBannerSuccessful.style.display = 'none';
     });
@@ -276,50 +259,40 @@ let products = {
 let cart = [];
 let cartItemCount = 0;
 let discountCodeApplied = false;
-let discount = 0; // Starting value for discount
-
+let discount = 0; 
 function calculateDiscount(subTotal, discountPercentage) {
-    return subTotal * (discountPercentage / 100); // Corrected the discount calculation
+    return subTotal * (discountPercentage / 100);
 }
-
 function applyDiscountCode(discountCode) {
-    if (discountCode === "discount20") { // Check for the exact discount code
+    if (discountCode === "discount20") { 
         discountCodeApplied = true;
     } else {
         discountCodeApplied = false;
     }
     calculateTotals();
 } 
-
 function renderProducts(containerId = 'products', filteredProducts = products.data) {
     const productsContainer = document.getElementById(containerId);
     productsContainer.innerHTML = '';
-
     for (let product of filteredProducts) {
         // Create product card elements
         let card = document.createElement("div");
         card.classList.add("card", product.category);
-
         let imgContainer = document.createElement("div");
         imgContainer.classList.add("image-container");
         let image = document.createElement("img");
         image.setAttribute("src", product.image);
-
         imgContainer.appendChild(image);
         card.appendChild(imgContainer);
-
         let container = document.createElement("div");
         container.classList.add("container");
-
         let name = document.createElement("h5");
         name.classList.add("product-name");
         name.innerText = product.productName.toUpperCase();
         container.appendChild(name);
-
         let price = document.createElement("h5");
         price.innerText = "$" + product.price;
         container.appendChild(price);
-
         let starsContainer = document.createElement("div");
         starsContainer.classList.add("stars-container");
         for (let i = 0; i < product.stars; i++) {
@@ -329,7 +302,6 @@ function renderProducts(containerId = 'products', filteredProducts = products.da
             starsContainer.appendChild(starIcon);
         }
         container.appendChild(starsContainer);
-
         let addToCartButton = document.createElement("i");
         addToCartButton.classList.add("fa-solid", "fa-bag-shopping");
         addToCartButton.style.color = "forestgreen"; 
@@ -342,8 +314,6 @@ function renderProducts(containerId = 'products', filteredProducts = products.da
         container.appendChild(badge);
         card.appendChild(container);
         productsContainer.appendChild(card);
-
-        // Add event listener for adding to cart
         addToCartButton.addEventListener('click', function () {
             const productId = parseInt(this.dataset.productId);
             const product = products.data.find(p => p.id === productId);
@@ -361,26 +331,21 @@ function renderProducts(containerId = 'products', filteredProducts = products.da
         });
     }
 }
-
-// Call the function to render all products on the products page
 renderProducts();
-
 function updateCartCount(count) {
     const shoppingCartCount = document.getElementById('shoppingCartNumberOfItems');
     shoppingCartCount.textContent = count;
 }
-
 function addToCart(product) {
     const existingProduct = cart.find(item => item.id === product.id);
-    const priceNumber = parseFloat(product.price.replace(/,/g, '')); // Convert price to number
+    const priceNumber = parseFloat(product.price.replace(/,/g, '')); 
     if (existingProduct) {
         existingProduct.quantity++;
     } else {
         cart.push({ ...product, price: priceNumber, quantity: 1 });
     }
-    updateCartCount(cartItemCount); // Update cart count when adding to cart
+    updateCartCount(cartItemCount); 
 }
-
 function removeFromCart(productId) {
     const productIndex = cart.findIndex(item => item.id === productId);
     if (productIndex > -1) {
@@ -391,75 +356,58 @@ function removeFromCart(productId) {
         calculateTotals();
     }
 }
-
 function updateCartQuantity(productId, newQuantity) {
     const product = cart.find(item => item.id === productId);
     if (product) {
         const difference = newQuantity - product.quantity;
         product.quantity = newQuantity;
-        cartItemCount += difference; // Update cart item count based on quantity change
-        updateCartCount(cartItemCount); // Update cart count in UI
+        cartItemCount += difference; 
+        updateCartCount(cartItemCount); 
     }
 }
-
 function calculateTotals() {
     let subtotal = 0;
     cart.forEach(item => {
         subtotal += item.price * item.quantity;
     });
-
-    const shipping = subtotal * 0.05; // 5% of subtotal
-    const tax = subtotal * 0.0825; // Example tax rate
-
-    let totalDiscount = 0; // Initialize discount
+    const shipping = subtotal * 0.05; 
+    const tax = subtotal * 0.0825; 
+    let totalDiscount = 0; 
     if (discountCodeApplied) {
-        totalDiscount = subtotal * 0.2; // Apply a 20% discount
+        totalDiscount = subtotal * 0.2;
     }
-
     const total = subtotal + shipping + tax - totalDiscount;
-
-    // Update UI with the calculated totals
     document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
     document.getElementById('shipping').innerText = `$${shipping.toFixed(2)}`;
     document.getElementById('tax').innerText = `$${tax.toFixed(2)}`;
     document.getElementById('discount').innerText = `$${totalDiscount.toFixed(2)}`;
     document.getElementById('total').innerText = `$${total.toFixed(2)}`;
 }
-
-
-
 function renderCartProducts() {
     const productsHolder = document.getElementById('productHolder');
     productsHolder.innerHTML = '';
-
     cart.forEach(product => {
         let cartItem = document.createElement('div');
         cartItem.classList.add('cartItem');
-
         let imgContainer = document.createElement('div');
         imgContainer.classList.add('cartImageContainer');
         let image = document.createElement('img');
         image.setAttribute('src', product.image);
         imgContainer.appendChild(image);
         cartItem.appendChild(imgContainer);
-
         let cartDetails = document.createElement('div');
         cartDetails.classList.add('cartDetails');
-        
         let name = document.createElement('h4');
         name.innerText = product.productName;
         cartDetails.appendChild(name);
-
         let itemPrice = document.createElement('p');
         itemPrice.classList.add('itemPrice');
         itemPrice.innerText = "$" + product.price;
         cartDetails.appendChild(itemPrice);
-
         let quantity = document.createElement('div');
         quantity.classList.add('quantity');
         quantity.innerHTML = `Quantity: <input type="number" value="${product.quantity}" min="1" data-product-id="${product.id}">`;
         cartDetails.appendChild(quantity);
-
         let removeButton = document.createElement('button');
         removeButton.classList.add('removeFromCart');
         removeButton.innerHTML = 'Remove';
@@ -469,12 +417,9 @@ function renderCartProducts() {
             calculateTotals();
         });
         cartDetails.appendChild(removeButton);
-
         cartItem.appendChild(cartDetails);
         productsHolder.appendChild(cartItem);
     });
-
-    // Add event listeners to quantity inputs
     const quantityInputs = document.querySelectorAll('.quantity input');
     quantityInputs.forEach(input => {
         input.addEventListener('change', function () {
@@ -485,32 +430,19 @@ function renderCartProducts() {
         });
     });
 }
-
 document.addEventListener("DOMContentLoaded", function () {
     renderProducts();
-
     const applyCouponButton = document.querySelector('.couponAddOption button');
     applyCouponButton.addEventListener('click', function () {
         const couponCode = document.getElementById('discountCodeInput').value.trim();
         applyDiscountCode(couponCode);
     });
 });
-
-calculateTotals(); // Call this to initially calculate totals without the discount applied
-
-
-
-
-
-
-
-
+calculateTotals(); 
 let selectedBrands = [];
 let selectedCategories = [];
 let selectedPriceRanges = [];
 let selectedSortOrder = null;
-
-
 function filterProducts() {
     let filteredProducts = products.data.filter(product =>
         (selectedBrands.length === 0 || selectedBrands.includes(product.brand)) &&
@@ -521,7 +453,6 @@ function filterProducts() {
             return price >= min && price <= max;
         }))
     );
-
     if (selectedSortOrder) {
         switch (selectedSortOrder) {
             case 'PriceHigh':
@@ -547,36 +478,28 @@ function filterProducts() {
 
     renderProducts(filteredProducts);
 }
-
-
-// Add event listener for the sort radio buttons
 document.querySelectorAll('input[name="sortButton"]').forEach(radio => {
     radio.addEventListener('change', () => {
         selectedSortOrder = radio.value;
         filterProducts();
     });
 });
-
-// Initial render
 renderProducts();
 function handleFilter(selectedFilter, value, checked) {
     if (checked) {
         if (!selectedFilter.includes(value)) {
-            selectedFilter.push(value); // Add value to filter array if not already present
+            selectedFilter.push(value);
         }
     } else {
-        selectedFilter = selectedFilter.filter(item => item !== value); // Remove value from filter array if unchecked
+        selectedFilter = selectedFilter.filter(item => item !== value); 
     }
-    return selectedFilter; // Return the updated filter array
+    return selectedFilter; 
 }
-
-// Update the event listener to use the returned value
 document.querySelectorAll('.checkBoxFilter').forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-        const filterType = checkbox.closest('.filterSection').classList[1]; // Get the filter type from parent element
+        const filterType = checkbox.closest('.filterSection').classList[1]; 
         const value = checkbox.value;
         const checked = checkbox.checked;
-
         switch (filterType) {
             case 'filterPageBrands':
                 selectedBrands = handleFilter(selectedBrands, value, checked);
@@ -590,7 +513,7 @@ document.querySelectorAll('.checkBoxFilter').forEach(checkbox => {
             default:
                 break;
         }
-        filterProducts(); // Reapply all filters after updating the selected filters
+        filterProducts();
     });
 });
 
@@ -598,13 +521,11 @@ document.querySelectorAll('.checkBoxFilter').forEach(checkbox => {
 const searchBarInput = document.getElementById('searchBarInput');
 
 searchBarInput.addEventListener('input', () => {
-    const searchValue = searchBarInput.value.trim().toLowerCase(); // Get the search value, trim whitespace, and convert to lowercase
+    const searchValue = searchBarInput.value.trim().toLowerCase(); 
 
     let filteredProducts = products.data.filter(product =>
-        product.productName.toLowerCase().includes(searchValue) // Check if product name includes the search value (case insensitive)
+        product.productName.toLowerCase().includes(searchValue)
     );
-
-    // Apply other filters if any
     if (selectedBrands.length > 0) {
         filteredProducts = filteredProducts.filter(product => selectedBrands.includes(product.brand));
     }
@@ -620,6 +541,5 @@ searchBarInput.addEventListener('input', () => {
             });
         });
     }
-
-    renderProducts(filteredProducts); // Render the filtered products
+    renderProducts(filteredProducts);
 });
