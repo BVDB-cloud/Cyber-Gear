@@ -2,9 +2,9 @@
 const navBarCart = document.getElementById('navBarShoppingCart');
 const shoppingCartDiv = document.querySelector(".shoppingCartPopOutMenu");
 const productsSection = document.getElementById("products");
+
 function toggleShoppingCart() {
     shoppingCartDiv.style.display = (shoppingCartDiv.style.display === "block") ? "none" : "block";
-        // Toggle the margin property based on the current value
         if (productsSection.style.marginRight === "50px") {
             productsSection.style.marginRight = "100px";
         } else {
@@ -39,19 +39,19 @@ document.addEventListener("DOMContentLoaded", function () {
     applyCouponButton.addEventListener('click', applyCoupon);
     couponInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
-            event.preventDefault(); 
+            event.preventDefault();
             applyCoupon();
         }
     });
     applyCouponButton.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault(); 
             applyCoupon();
         }
     });
     function applyCoupon() {
         const couponCode = couponInput.value.trim();
-        if (couponCode === "DISCOUNT20") { // Sample coupon code for testing
+        if (couponCode === "DISCOUNT20") { 
             couponBannerSuccessful.style.display = 'flex';
             couponBannerDenied.style.display = 'none';
         } else {
@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
             couponBannerDenied.style.display = 'flex';
         }
         couponInput.value = '';
-
     }
     closeCouponSuccess.addEventListener('click', function () {
         couponBannerSuccessful.style.display = 'none';
@@ -69,8 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
         couponBannerDenied.style.display = 'none';
     });
 });
-//
-
 let products = {
     data: [
         {
@@ -179,7 +176,7 @@ let products = {
             category:"Desktop",
             price:"9,999,999.99",
             stars:"5",
-            image:"image12.jpg",
+            image:"image12.png",
         },
         {
             id:13,
@@ -197,7 +194,7 @@ let products = {
             category:"Laptop",
             price:"3,141,592.65",
             stars:"5",
-            image:"image14.png",
+            image:"image14.jpg",
         },
         {
             id:15,
@@ -206,7 +203,7 @@ let products = {
             category:"Laptop",
             price:"1,100",
             stars:"5",
-            image:"image15.jpg",
+            image:"image15.png",
         },
         {
             id:16,
@@ -235,47 +232,27 @@ let products = {
             stars:"5",
             image:"image18.png",
         },
-        {
-            id:19,
-            productName:"MacBook Air",
-            brand:"Apple",
-            category:"Laptop",
-            price:"1,300",
-            stars:"5",
-            image:"image19.png",
-        },
-        {
-            id:20,
-            productName:"great",
-            brand:"Microsoft",
-            category:"Laptop",
-            price:"400",
-            stars:"4",
-            image:"SurfacePro.jpg",
-        },
     ]
 }
-
 let cart = [];
 let cartItemCount = 0;
 let discountCodeApplied = false;
-let discount = 0; 
+let discount = 0;
 function calculateDiscount(subTotal, discountPercentage) {
     return subTotal * (discountPercentage / 100);
 }
 function applyDiscountCode(discountCode) {
-    if (discountCode === "discount20") { 
+    if (discountCode === "discount20") {
         discountCodeApplied = true;
     } else {
         discountCodeApplied = false;
     }
     calculateTotals();
-} 
+}
 function renderProducts(containerId = 'products', filteredProducts = products.data) {
     const productsContainer = document.getElementById(containerId);
     productsContainer.innerHTML = '';
     for (let product of filteredProducts) {
-        // Create product card elements
         let card = document.createElement("div");
         card.classList.add("card", product.category);
         let imgContainer = document.createElement("div");
@@ -332,6 +309,7 @@ function renderProducts(containerId = 'products', filteredProducts = products.da
     }
 }
 renderProducts();
+
 function updateCartCount(count) {
     const shoppingCartCount = document.getElementById('shoppingCartNumberOfItems');
     shoppingCartCount.textContent = count;
@@ -370,11 +348,13 @@ function calculateTotals() {
     cart.forEach(item => {
         subtotal += item.price * item.quantity;
     });
+
     const shipping = subtotal * 0.05; 
     const tax = subtotal * 0.0825; 
+
     let totalDiscount = 0; 
     if (discountCodeApplied) {
-        totalDiscount = subtotal * 0.2;
+        totalDiscount = subtotal * 0.2; 
     }
     const total = subtotal + shipping + tax - totalDiscount;
     document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
@@ -449,17 +429,17 @@ function filterProducts() {
         (selectedCategories.length === 0 || selectedCategories.includes(product.category)) &&
         (selectedPriceRanges.length === 0 || selectedPriceRanges.some(range => {
             let [min, max] = range.split('-').map(Number);
-            let price = parseInt(product.price.replace(/,/g, ''));
+            let price = parseFloat(product.price.replace(/,/g, ''));
             return price >= min && price <= max;
         }))
     );
     if (selectedSortOrder) {
         switch (selectedSortOrder) {
             case 'PriceHigh':
-                filteredProducts.sort((a, b) => parseInt(b.price.replace(/,/g, '')) - parseInt(a.price.replace(/,/g, '')));
+                filteredProducts.sort((a, b) => parseFloat(b.price.replace(/,/g, '')) - parseFloat(a.price.replace(/,/g, '')));
                 break;
             case 'PriceLow':
-                filteredProducts.sort((a, b) => parseInt(a.price.replace(/,/g, '')) - parseInt(b.price.replace(/,/g, '')));
+                filteredProducts.sort((a, b) => parseFloat(a.price.replace(/,/g, '')) - parseFloat(b.price.replace(/,/g, '')));
                 break;
             case 'NameAsc':
                 filteredProducts.sort((a, b) => a.productName.localeCompare(b.productName));
@@ -475,16 +455,8 @@ function filterProducts() {
                 break;
         }
     }
-
-    renderProducts(filteredProducts);
+    renderProducts('products', filteredProducts);
 }
-document.querySelectorAll('input[name="sortButton"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-        selectedSortOrder = radio.value;
-        filterProducts();
-    });
-});
-renderProducts();
 function handleFilter(selectedFilter, value, checked) {
     if (checked) {
         if (!selectedFilter.includes(value)) {
@@ -495,34 +467,41 @@ function handleFilter(selectedFilter, value, checked) {
     }
     return selectedFilter; 
 }
-document.querySelectorAll('.checkBoxFilter').forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-        const filterType = checkbox.closest('.filterSection').classList[1]; 
-        const value = checkbox.value;
-        const checked = checkbox.checked;
-        switch (filterType) {
-            case 'filterPageBrands':
-                selectedBrands = handleFilter(selectedBrands, value, checked);
-                break;
-            case 'filterPageCategories':
-                selectedCategories = handleFilter(selectedCategories, value, checked);
-                break;
-            case 'filterPagePriceRanges':
-                selectedPriceRanges = handleFilter(selectedPriceRanges, value, checked);
-                break;
-            default:
-                break;
-        }
-        filterProducts();
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.checkBoxFilter').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const filterType = this.closest('.filterSection').classList[1];
+            const value = this.value;
+            const checked = this.checked;
+            switch (filterType) {
+                case 'filterPageBrands':
+                    selectedBrands = handleFilter(selectedBrands, value, checked);
+                    break;
+                case 'filterPageCategories':
+                    selectedCategories = handleFilter(selectedCategories, value, checked);
+                    break;
+                case 'filterPagePriceRanges':
+                    selectedPriceRanges = handleFilter(selectedPriceRanges, value, checked);
+                    break;
+                default:
+                    break;
+            }
+            filterProducts(); 
+        });
     });
+    document.querySelectorAll('input[name="sortButton"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            selectedSortOrder = this.value;
+            filterProducts();
+        });
+    });
+    renderProducts('products');
 });
 
-
+renderProducts();
 const searchBarInput = document.getElementById('searchBarInput');
-
 searchBarInput.addEventListener('input', () => {
-    const searchValue = searchBarInput.value.trim().toLowerCase(); 
-
+    const searchValue = searchBarInput.value.trim().toLowerCase();
     let filteredProducts = products.data.filter(product =>
         product.productName.toLowerCase().includes(searchValue)
     );
@@ -536,10 +515,10 @@ searchBarInput.addEventListener('input', () => {
         filteredProducts = filteredProducts.filter(product => {
             return selectedPriceRanges.some(range => {
                 let [min, max] = range.split('-').map(Number);
-                let price = parseInt(product.price.replace(/,/g, ''));
+                let price = parseFloat(product.price.replace(/,/g, ''));
                 return price >= min && price <= max;
             });
         });
     }
-    renderProducts(filteredProducts);
+    renderProducts('products', filteredProducts);
 });
