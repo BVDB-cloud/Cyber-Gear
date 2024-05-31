@@ -149,7 +149,7 @@ let products = {
             category:"Mouse",
             price:"599.99",
             stars:"5",
-            image:"image9.jpg",
+            image:"image10.jpg",
         },
         {
             id:10,
@@ -158,7 +158,7 @@ let products = {
             category:"Mouse",
             price:"34.99",
             stars:"4",
-            image:"image10.jpg",
+            image:"image11.jpg",
         },
         {
             id:11,
@@ -167,7 +167,7 @@ let products = {
             category:"Mouse",
             price:"129.99",
             stars:"5",
-            image:"image11.jpg",
+            image:"image12.jpg",
         },
         {
             id:12,
@@ -176,7 +176,7 @@ let products = {
             category:"Desktop",
             price:"9,999,999.99",
             stars:"5",
-            image:"image12.png",
+            image:"image13.png",
         },
         {
             id:13,
@@ -185,7 +185,7 @@ let products = {
             category:"Desktop",
             price:".29",
             stars:"5",
-            image:"image13.png",
+            image:"image14.png",
         },
         {
             id:14,
@@ -194,7 +194,7 @@ let products = {
             category:"Laptop",
             price:"3,141,592.65",
             stars:"5",
-            image:"image14.jpg",
+            image:"image15.jpg",
         },
         {
             id:15,
@@ -203,7 +203,7 @@ let products = {
             category:"Laptop",
             price:"1,100",
             stars:"5",
-            image:"image15.png",
+            image:"image16.png",
         },
         {
             id:16,
@@ -212,7 +212,7 @@ let products = {
             category:"Laptop",
             price:"1,300",
             stars:"5",
-            image:"image16.png",
+            image:"image17.png",
         },
         {
             id:17,
@@ -221,7 +221,7 @@ let products = {
             category:"Laptop",
             price:"400",
             stars:"4",
-            image:"image17.png",
+            image:"image18.png",
         },
         {
             id:18,
@@ -230,7 +230,7 @@ let products = {
             category:"Laptop",
             price:"1100",
             stars:"5",
-            image:"image18.png",
+            image:"image19.png",
         },
     ]
 }
