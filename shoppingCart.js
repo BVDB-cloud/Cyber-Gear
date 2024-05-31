@@ -95,7 +95,7 @@ let products = {
             productName:"Apple Macintosh 128K",
             brand:"Apple",
             category:"Desktop",
-            price:"0",
+            price:"39,999",
             stars:"5",
             image:"image1.jpg",
         },
@@ -115,7 +115,7 @@ let products = {
             category:"Laptop",
             price:"999.99",
             stars:"1",
-            image:"Images\productImages\image3.png",
+            image:"image3.png",
         },
         {
             id:4,
@@ -124,7 +124,7 @@ let products = {
             category:"Watch",
             price:"199.99",
             stars:"3",
-            image:"Images\productImages\image4.jpg",
+            image:"image4.jpg",
         },
         {
             id:5,
@@ -133,7 +133,7 @@ let products = {
             category:"Phone",
             price:"1,299.99",
             stars:"5",
-            image:"Images\productImages\image5.jpg",
+            image:"image5.jpg",
         },
         {
             id:6,
@@ -142,7 +142,7 @@ let products = {
             category:"Watch",
             price:"199.99",
             stars:"1",
-            image:"Images\productImages\image6.png",
+            image:"image6.png",
         },
         {
             id:7,
@@ -151,7 +151,7 @@ let products = {
             category:"Laptop",
             price:"999.99",
             stars:"4",
-            image:"Images\productImages\image7.png",
+            image:"image7.png",
         },
         {
             id:8,
@@ -160,7 +160,7 @@ let products = {
             category:"Desktop",
             price:"9.99",
             stars:"1",
-            image:"Images\productImages\image8.jpg",
+            image:"image8.jpg",
         },
         {
             id:9,
@@ -169,7 +169,7 @@ let products = {
             category:"Mouse",
             price:"599.99",
             stars:"5",
-            image:"Images\productImages\image9.jpg",
+            image:"image9.jpg",
         },
         {
             id:10,
@@ -178,7 +178,7 @@ let products = {
             category:"Mouse",
             price:"34.99",
             stars:"4",
-            image:"Images\productImages\image10.jpg",
+            image:"image10.jpg",
         },
         {
             id:11,
@@ -187,7 +187,7 @@ let products = {
             category:"Mouse",
             price:"129.99",
             stars:"5",
-            image:"Images\productImages\image11.jpg",
+            image:"image11.jpg",
         },
         {
             id:12,
@@ -196,7 +196,7 @@ let products = {
             category:"Desktop",
             price:"9,999,999.99",
             stars:"5",
-            image:"Images\productImages\image12.jpg",
+            image:"image12.jpg",
         },
         {
             id:13,
@@ -205,7 +205,7 @@ let products = {
             category:"Desktop",
             price:".29",
             stars:"5",
-            image:"Images\productImages\image13.png",
+            image:"image13.png",
         },
         {
             id:14,
@@ -214,7 +214,7 @@ let products = {
             category:"Laptop",
             price:"3,141,592.65",
             stars:"5",
-            image:"Images\productImages\image14.png",
+            image:"image14.png",
         },
         {
             id:15,
@@ -223,7 +223,7 @@ let products = {
             category:"Laptop",
             price:"1,100",
             stars:"5",
-            image:"Images\productImages\image15.jpg",
+            image:"image15.jpg",
         },
         {
             id:16,
@@ -232,7 +232,7 @@ let products = {
             category:"Laptop",
             price:"1,300",
             stars:"5",
-            image:"Images\productImages\image16.png",
+            image:"image16.png",
         },
         {
             id:17,
@@ -241,7 +241,7 @@ let products = {
             category:"Laptop",
             price:"400",
             stars:"4",
-            image:"Images\productImages\image17.png",
+            image:"image17.png",
         },
         {
             id:18,
@@ -250,7 +250,7 @@ let products = {
             category:"Laptop",
             price:"1100",
             stars:"5",
-            image:"Images\productImages\image18.png",
+            image:"image18.png",
         },
         {
             id:19,
@@ -259,7 +259,7 @@ let products = {
             category:"Laptop",
             price:"1,300",
             stars:"5",
-            image:"Images\productImages\image19.png",
+            image:"image19.png",
         },
         {
             id:20,
